@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Room from '../views/RoomView.vue'
 import CreateRoom from '../views/CreateRoomView.vue'
 import UpdateRoom from '../views/UpdateRoomView.vue'
-import LogIn from '../views/LogInView.vue'
+
 
 const routes = [
 
@@ -34,13 +34,6 @@ const routes = [
     name: 'updateroom',
     component: UpdateRoom,
     },
-
-    {
-      path: '/login',
-      name: 'login',
-      component: LogIn,
-      },
-
 
 ]
 

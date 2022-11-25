@@ -1,0 +1,15 @@
+Install Docker Mongo: 
+
+>docker-compose up -d 
+
+In container Terminal make DB ReplicaSet (first time only)
+>mongo
+>cfg = {_id:"rs0", members:[{_id:0,host:"localhost:27017"}]};
+>rs.initiate(cfg)
+
+
+Database is salved localy inside the ./data/db and Delegated to the container
+
+
+
+

@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+  mongosamsa:
+    image: mongo:4.4.6
+    container_name: mongodb
+    entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--journal", "--dbpath", "/data/db"]
+    volumes:
+      - ./data/db:/data/db:delegated
+    environment:
+      MONGO_INITDB_ROOT_DATABASE: zf2odm
+    ports:
+      - 27017:27017

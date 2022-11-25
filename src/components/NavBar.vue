@@ -7,7 +7,7 @@
 
         <button style="text-decoration: none; color: inherit;">About us</button> 
 
-        <button><router-link :to="`/login`" class="text-white" style="text-decoration: none; color: inherit; text-white;">login</router-link></button>
+        <button @click="login">Log in</button>
 
         <button><router-link :to="`/rooms/add`" class="text-white" style="text-decoration: none; color: inherit; text-white;">Add rooms</router-link></button>
         
@@ -22,10 +22,21 @@
 </template>
 
 <script>
-export default {
-  name: 'NavBar'
 
+import { useAuth0 } from '@auth0/auth0-vue';
+
+name: 'LogIn'
+export default {
+  setup() {
+    const { loginWithRedirect } = useAuth0();
+
+    return {
+      login: () => {
+        loginWithRedirect();
+      }
+    };
   }
+};
 
 </script>
 
