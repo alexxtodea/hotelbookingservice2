@@ -29,7 +29,7 @@
       <input v-model="imageUrl" type="text" class="form-control ml-sm-2 mr-sm-4 my-2" required>
     </div>
     <div class="ml-auto text-right">
-      <button><router-link :to="`/rooms`" @click="updateRoom()" style="text-decoration: none; color: inherit;">Add</router-link></button> 
+      <button><router-link :to="`/rooms`" @click="postRoom()" style="text-decoration: none; color: inherit;">Add</router-link></button> 
       </div>
     </form>
 </html>
