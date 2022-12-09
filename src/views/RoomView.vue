@@ -3,7 +3,7 @@
     <html >
       <NavBar/>
    
-    <p class="headers">your room</p>
+    <p class="headers">this room</p>
     <div>
       <RoomComponent
         :id="room.id"
@@ -37,7 +37,7 @@
   },
     data() {
       return {
-        room: null,
+        room: "",
         error: null,
       }
     },

@@ -16,7 +16,8 @@
       <p>the room number{{roomNumber}}</p> 
       <p>{{imageUrl}}</p> 
       <button @click.prevent="deleteRoom(this.id)">delete this room</button>
-      <button><router-link :to="`/rooms/update/${id}`" style="text-decoration: none; color: inherit;">edit this room</router-link></button> 
+      <button><router-link :to="`/rooms/update/${id}`" style="text-decoration: none; color: inherit;">edit this room</router-link></button>
+      <button><router-link :to="`/rooms/bookings/add/${id}`" style="text-decoration: none; color: inherit;">BOOK</router-link></button>  
 </div>
 </div>
     </div>

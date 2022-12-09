@@ -7,6 +7,7 @@
     <div class="form-group">
       <label>title</label>
       <input type="text" v-model="room.roomType" class="form-control ml-sm-2 mr-sm-4 my-2"  required>
+      
     </div>
     <div class="form-group">
       <label>number</label>
@@ -52,7 +53,7 @@ props:{
 },
   data() {
     return {
-      room: null,
+      room: {roomType:""},
       error: null,
     }
   },
@@ -66,6 +67,7 @@ props:{
     .then(response => {
          if(response.ok){
             console.log(id)
+            //console.log(roomType)
              return response.json()
          } else{
            console.log(response)

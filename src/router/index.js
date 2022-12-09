@@ -3,7 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Room from '../views/RoomView.vue'
 import CreateRoom from '../views/CreateRoomView.vue'
 import UpdateRoom from '../views/UpdateRoomView.vue'
-
+import Bookings from '../views/BookingsView.vue'
+import CreateBooking from '../views/CreateBookingView.vue'
 
 const routes = [
 
@@ -24,10 +25,21 @@ const routes = [
     props: true
   },
   {
+    path: `/bookings`,
+    name: 'bookings',
+    component: Bookings,
+    props: true
+  },
+  {
     path: '/rooms/add',
     name: 'createroom',
     component: CreateRoom,
     },
+    {
+      path: '/rooms/bookings/add/:Rid',
+      name: 'createbooking',
+      component: CreateBooking,
+      },
 
     {
     path: '/rooms/update/:Rid',

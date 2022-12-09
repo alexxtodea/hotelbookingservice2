@@ -5,7 +5,7 @@
       <h1>welcome</h1>
       <div class="navbar-options">
 
-        <button style="text-decoration: none; color: inherit;">About us</button> 
+        <button><router-link :to="`/bookings`" class="text-white" style="text-decoration: none; color: inherit; text-white;">Bookings</router-link></button>
 
         <button @click="login">Log in</button>
 
@@ -25,8 +25,10 @@
 
 import { useAuth0 } from '@auth0/auth0-vue';
 
-name: 'LogIn'
+
 export default {
+  name: 'LogIn',
+
   setup() {
     const { loginWithRedirect } = useAuth0();
 
