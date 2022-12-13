@@ -1,26 +1,25 @@
 <template>
- <router-view/>
+  <router-view />
 </template>
 
 <script>
-import RoomsComponent from './components/RoomsComponent.vue';
-
+import RoomsComponent from "./components/RoomsComponent.vue";
 
 export default {
-  name: 'Rooms',
+  name: "Rooms",
+
   components: {
     RoomsComponent,
- 
-}}
-
+  },
+};
 </script>
 
 <style scoped>
- 
- * {
-  background-color: black;
-  margin: 0px;
-  padding:0px;
+* {
+  margin: auto 10px;
+  width: auto;
+  height: 2000px;
+  align-content: center;
+  background-repeat: repeat;
 }
-
 </style>

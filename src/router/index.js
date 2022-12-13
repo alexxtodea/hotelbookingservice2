@@ -5,15 +5,12 @@ import CreateRoom from '../views/CreateRoomView.vue'
 import UpdateRoom from '../views/UpdateRoomView.vue'
 import Bookings from '../views/BookingsView.vue'
 import CreateBooking from '../views/CreateBookingView.vue'
+import { createAuthGuard } from '@auth0/auth0-vue'
 
 const routes = [
 
   {
-    path: '',
-    name: 'rooms',
-    component: Rooms,
-
-    path: '/rooms/',
+    path: '/',
     name: 'rooms',
     component: Rooms,
     
