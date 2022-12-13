@@ -9,6 +9,10 @@ import CreateBooking from '../views/CreateBookingView.vue'
 const routes = [
 
   {
+    path: '',
+    name: 'rooms',
+    component: Rooms,
+
     path: '/rooms/',
     name: 'rooms',
     component: Rooms,

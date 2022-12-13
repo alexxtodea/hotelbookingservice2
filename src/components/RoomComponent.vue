@@ -13,7 +13,7 @@
               <p>{{bedAmount}} bed(s)</p> 
             </div>
  
-      <p>the room number{{roomNumber}}</p> 
+      <p>the room number  {{roomNumber}}</p> 
       <p>{{imageUrl}}</p> 
       <button @click.prevent="deleteRoom(this.id)">delete this room</button>
       <button><router-link :to="`/rooms/update/${id}`" style="text-decoration: none; color: inherit;">edit this room</router-link></button>

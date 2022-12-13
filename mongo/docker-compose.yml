@@ -3,7 +3,7 @@ services:
   mongosamsa:
     image: mongo:4.4.6
     container_name: mongodb
-    entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--journal", "--dbpath", "/data/db"]
+    entrypoint: ["/usr/bin/mongod", "--replSet", "rs0", "--journal", "--dbpath", "/data/db"]
     volumes:
       - ./data/db:/data/db:delegated
     environment:
