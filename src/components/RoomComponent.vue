@@ -9,30 +9,40 @@
 
         <div class="menu">
           <ul>
-           <li><p>{{ description }}</p></li>
-           <li><p>{{ bedAmount }} bed(s)</p></li>
-           <li><p>the room number {{ roomNumber }}</p></li>
-           <li><p>{{ imageUrl }}</p></li>
+            <li>
+              <p>{{ description }}</p>
+            </li>
+            <li>
+              <p>{{ bedAmount }} bed(s)</p>
+            </li>
+            <li>
+              <p>the room number {{ roomNumber }}</p>
+            </li>
+            <li>
+              <p>{{ imageUrl }}</p>
+            </li>
           </ul>
         </div>
 
         <div class="btns">
-        <button @click.prevent="deleteRoom(this.id)">delete this room</button>
-        <button>
-          <router-link
-            :to="`/rooms/update/${id}`"
-            style="text-decoration: none; color: inherit"
-            >edit this room</router-link
-          >
-        </button>
-        <button>
-          <router-link
-            :to="`/rooms/bookings/add/${id}`"
-            style="text-decoration: none; color: inherit"
-            >BOOK</router-link
-          >
-        </button>
-      </div>
+          <button v-if="!isAuthenticated" @click.prevent="deleteRoom(this.id)">
+            delete this room
+          </button>
+          <button v-if="!isAuthenticated">
+            <router-link
+              :to="`/rooms/update/${id}`"
+              style="text-decoration: none; color: inherit"
+              >edit this room</router-link
+            >
+          </button>
+          <button v-if="isAuthenticated">
+            <router-link
+              :to="`/rooms/bookings/add/${id}`"
+              style="text-decoration: none; color: inherit"
+              >BOOK</router-link
+            >
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -61,7 +71,7 @@ export default {
           console.log(response);
         })
         .finally(() => {
-          location.assign("/rooms");
+          location.assign("/");
           // this.$router.push({ name: "home" });
         });
     },
@@ -82,21 +92,31 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
 }
-.roomdescription{
-  margin-bottom: 20px;
+.roomdescription {
+  margin-bottom: 40px;
 }
 
 .container-description {
   display: flex;
-  margin: 20px;
-  width: 30%;
+  margin: 10px;
+  width: 25%;
   float: left;
+  font-size: 1.5cm;
 }
-.btns{
+.menu {
+  margin-right: 50px;
+  margin-left: 20px;
+  width: 60%;
+}
+.btns {
   display: grid;
-  margin-left: 30px;
-  width: 20%;
+  margin-left: 50px;
+  width: 10%;
   float: right;
+  position: absolute;
+  right: 16px;
+  align-items: center;
+  bottom: 40px;
 }
 
 .container-container {

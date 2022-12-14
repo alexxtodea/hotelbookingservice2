@@ -12,8 +12,20 @@
           >
         </button>
 
-        <button v-if="!isAuthenticated" style="text-decoration: none; color: inherit; text-white;" @click="login">Log in</button>
-        <button v-if="isAuthenticated" style="text-decoration: none; color: inherit; text-white;" @click="logout()">Logout</button>
+        <button
+          v-if="!isAuthenticated"
+          style="text-decoration: none; color: inherit; text-white;"
+          @click="login"
+        >
+          Log in
+        </button>
+        <button
+          v-if="isAuthenticated"
+          style="text-decoration: none; color: inherit; text-white;"
+          @click="logout()"
+        >
+          Logout
+        </button>
 
         <button v-if="isAuthenticated">
           <router-link
@@ -78,7 +90,7 @@ export default {
   display: flex;
   color: #ffffff;
   font-size: 50px;
-  padding: 150px;
+  padding: 160px;
   margin-left: 30px;
   padding-left: 30px;
   text-transform: uppercase;
@@ -100,7 +112,7 @@ export default {
 }
 
 button {
-  font-size:x-large;
+  font-size: x-large;
   padding: 50px 30px;
   margin: 10px;
   opacity: 0.9;
@@ -110,8 +122,6 @@ button {
   border-radius: 10px;
   transition-duration: 0.4s;
   text-align: center;
-  
-
 }
 
 button:hover {

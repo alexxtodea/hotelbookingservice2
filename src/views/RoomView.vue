@@ -5,7 +5,8 @@
 
       <p class="headers">this room</p>
       <div class="Card">
-        <RoomComponent style=""
+        <RoomComponent
+          style=""
           :id="room.id"
           :roomType="room.roomType"
           :description="room.description"
@@ -72,8 +73,7 @@ export default {
 </script>
 
 <style scoped>
-
-*{
+* {
   position: relative;
 }
 .page {
@@ -90,7 +90,6 @@ export default {
 }
 
 .container-header-nav {
- 
   background-image: url("../assets/hotel.jpg");
   width: 100%;
   height: auto;
@@ -102,9 +101,8 @@ export default {
   margin-left: 30px;
   padding-left: 30px;
   text-transform: uppercase;
-  
 }
-.card{
+.card {
   position: absolute;
 }
 
