@@ -1,7 +1,7 @@
 <template>
   <header class="container-header">
     <nav class="container-header-nav">
-      <h1>welcome</h1>
+      <h1 class="welcome">welcome</h1>
       <div class="navbar-options">
         <button v-if="isAuthenticated">
           <router-link
@@ -80,17 +80,19 @@ export default {
   background-color: #000000;
   flex: space;
 }
-
+.welcome{
+  font-size:2cm;
+}
 .container-header-nav {
   /* background-color:	#6a545f;  */
-  background-image: url("../assets/hotel.jpg");
-  width: 100%;
+  background-image: url("../assets/HotelIMG.jpg");
+  width: 130%;
   height: auto;
-  background-position: center;
+  background-position: center right;
   display: flex;
   color: #ffffff;
-  font-size: 50px;
-  padding: 160px;
+  font-size: 200px;
+  padding: 300px;
   margin-left: 30px;
   padding-left: 30px;
   text-transform: uppercase;

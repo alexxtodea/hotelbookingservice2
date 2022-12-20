@@ -17,29 +17,52 @@
         />
         <br />
       </div>
+
+      <div>
+        <p class="headers">bookings for this room</p>
+      </div>
+      <div v-for="booking in bookings" v-bind:key="booking.id" class="booking">
+        <div v-if="!isAuthenticated">
+          <BookingPerRoomComponent
+            :room="booking.room"
+            :timeOfArrival="booking.timeOfArrival"
+            :timeOfDeparture="booking.timeOfDeparture"
+            :amountDaysStay="booking.amountDaysStay"
+            :bookerFullName="booking.bookerFullName"
+            :bookerEmail="booking.bookerEmail"
+            :amountOfGuests="booking.amountOfGuests"
+          />
+        </div>
+      </div>
     </html>
   </div>
 </template>
 
 <script>
 import RoomComponent from "../components/RoomComponent.vue";
+import BookingPerRoomComponent from "../components/BookingPerRoomComponent.vue";
 import NavBar from "../components/NavBar.vue";
 
 export default {
   name: "room",
+
   components: {
     RoomComponent,
+    BookingPerRoomComponent,
     NavBar,
   },
   props: {
     id: String,
+    Booking: Object,
   },
   data() {
     return {
       room: "",
+      bookings: [],
       error: null,
     };
   },
+
   methods: {
     getRoomById() {
       console.log(this.$route);
@@ -47,6 +70,31 @@ export default {
       const id = this.$route.params.Rid;
 
       fetch(`http://localhost:8002/rooms/find/${id}`)
+        .then((response) => {
+          if (response.ok) {
+            console.log(id);
+            return response.json();
+          } else {
+            console.log(response);
+            alert(
+              "Server returned " + response.status + " : " + response.statusText
+            );
+          }
+        })
+        .then((response) => {
+          this.room = response;
+          this.bookings = response.bookings;
+        })
+        .catch((err) => {
+          this.error = err;
+        });
+    },
+    getBookingByRoomId() {
+      console.log(this.$route);
+
+      const id = this.$route.params.Rid;
+
+      fetch(`http://localhost:8002/rooms/bookings/${id}`)
         .then((response) => {
           if (response.ok) {
             console.log(id);
@@ -101,9 +149,6 @@ export default {
   margin-left: 30px;
   padding-left: 30px;
   text-transform: uppercase;
-}
-.card {
-  position: absolute;
 }
 
 .headers {

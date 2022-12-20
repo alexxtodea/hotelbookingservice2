@@ -85,21 +85,6 @@ export default {
   flex: space;
 }
 
-.container-header-nav {
-  /* background-color:	#6a545f;  */
-  background-image: url("../assets/hotel.jpg");
-  width: 100%;
-  height: auto;
-  background-position: center;
-  display: flex;
-  color: #ffffff;
-  font-size: 50px;
-  padding: 60px;
-  margin-left: 30px;
-  padding-left: 30px;
-  text-transform: uppercase;
-}
-
 .headers {
   text-align: center;
   text-transform: uppercase;

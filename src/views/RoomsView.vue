@@ -1,97 +1,105 @@
 <template>
   <div class="page">
-    <html>
-      <NavBar />
+  <html >
+    
+      <NavBar/>
+   
 
-      <p class="headers">our rooms:</p>
-      <div v-for="room in rooms" v-bind:key="room.id" class="room">
-        <RoomsComponent
-          :id="room.id"
-          :roomType="room.roomType"
-          :description="room.description"
-          :imageUrl="room.imageUrl"
-          :bedAmount="room.bedAmount"
-          :price="room.price"
-          :roomNumber="room.roomNumber"
-        />
-      </div>
-    </html>
-  </div>
+
+
+  <p class="headers">our rooms:</p>
+    <div v-for="room in rooms" v-bind:key="room.id" class="room">
+      <RoomsComponent
+        :id="room.id"
+        :roomType="room.roomType"
+        :description="room.description"
+        :imageUrl="room.imageUrl"
+        :bedAmount="room.bedAmount"
+        :price="room.price"
+        :roomNumber="room.roomNumber"
+      />
+    </div>
+ 
+  </html>
+</div>
 </template>
 
 <script>
-import RoomsComponent from "../components/RoomsComponent.vue";
-import NavBar from "../components/NavBar.vue";
-import router from "@/router";
+import RoomsComponent from '../components/RoomsComponent.vue';
+import NavBar from '../components/NavBar.vue';
+import router from '@/router';
+
 
 export default {
-  name: "Rooms",
+  name: 'Rooms',
   components: {
     RoomsComponent,
-    NavBar,
-  },
+    NavBar
+},
 
   data() {
     return {
       rooms: [],
       error: null,
-    };
+      
+    }
   },
   methods: {
-    navigateto(url) {
+    navigateto(url){
       debugger;
-      router.push(url);
+      router.push(url)
     },
     getRooms() {
-      fetch(`http://localhost:8002/rooms/getAll`)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            console.log(response);
-            alert(
-              "Server returned " + response.status + " : " + response.statusText
-            );
-          }
+      
+
+        fetch(`http://localhost:8002/rooms/getAll`)
+        .then(response => {
+            if(response.ok){
+                return response.json()
+            } else{
+              console.log(response)
+                alert("Server returned " + response.status + " : " + response.statusText);
+            }
         })
-        .then((response) => {
-          this.rooms = response;
+        .then(response => {
+            this.rooms = response;
         })
-        .catch((err) => {
-          this.error = err;
+        .catch(err => {
+            this.error = err;
         });
-    },
+      },
   },
 
-  created: function () {
+  created: function(){
     this.getRooms();
-  },
-};
+   
+  }
+}
 </script>
 
 <style scoped>
-.page {
+ .page {
   margin: 0%;
   background-color: #f0f0f0;
   align-content: center;
   align-items: center;
 }
 
-.container-header {
+ .container-header{
   margin: 0%;
-  background-color: #000000;
+  background-color:#000000;
   flex: space;
-}
+ }
 
-.container-header-nav {
-  /* background-color:	#6a545f;  */
-  background-image: url("../assets/hotel.jpg");
+.container-header-nav{
+   /* background-color:	#6a545f;  */
+   background-image: url("../assets/hotel.jpg");
   width: 100%;
   height: auto;
-  background-position: center;
-  display: flex;
+background-position: center;
+   display:flex;
   color: #ffffff;
-  font-size: 50px;
+  font-size:50px;
   padding: 60px;
   margin-left: 30px;
   padding-left: 30px;
@@ -104,28 +112,31 @@ export default {
   color: black;
 }
 
-.navbar-options {
+.navbar-options{
   display: flex;
   padding: 10px;
   margin: 10px;
+  
 }
-img {
+img{
   width: 150px;
 }
 
-button {
+button{ 
   padding: 20px;
   margin: 10px;
   opacity: 0.9;
   filter: alpha(opacity=90);
-  background-color: rgba(27, 26, 26, 0.9);
+  background-color: rgba(27, 26, 26, 0.9); 
   border: transparent;
   border-radius: 10px;
   transition-duration: 0.4s;
 }
 
-button:hover {
+button:hover{
   opacity: 0.6;
-  background-color: rgba(61, 58, 58, 0.9);
+  background-color: rgba(61, 58, 58, 0.9); 
 }
+
+
 </style>
